@@ -1,0 +1,27 @@
+{
+	"name": "testcafe-project",
+	"version": "1.0.0",
+	"description": "first testcafe description",
+	"main": "index.js",
+	"scripts": {
+		"test": "testcafe chrome ./tests"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ChrstphGrnr/testcafe-project.git"
+	},
+	"keywords": [
+		"testcafe",
+		"automation",
+		"tests"
+	],
+	"author": "ChrstphGrnr",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ChrstphGrnr/testcafe-project/issues"
+	},
+	"homepage": "https://github.com/ChrstphGrnr/testcafe-project#readme",
+	"dependencies": {
+		"testcafe": "^1.8.3"
+	}
+}
