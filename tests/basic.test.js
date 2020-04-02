@@ -21,9 +21,13 @@ fixture`Getting started with TestCafe`
 
 test('My First TestCafe Test', async t => {
 	//test code
-	await t.setTestSpeed(0.1)
-	await t.typeText('#developer-name', 'John')
-	await t.click('#submit-button')
+	const developerName = Selector('#developer-name')
+	const submitButton = Selector('#submit-button')
+	const articleText = Selector('#article-header')
 
-	await t.expect(Selector('#article-header').innerText).contains('John')
+	await t.setTestSpeed(0.1)
+	await t.typeText(developerName, 'John')
+	await t.click(submitButton)
+
+	await t.expect(articleText.innerText).contains('John')
 })
