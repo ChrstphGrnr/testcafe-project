@@ -17,6 +17,7 @@ fixture`Getting started with TestCafe`
 	})
 	.afterEach(async t => {
 		//Runs after each test
+		//more comments here
 	})
 
 test('My First TestCafe Test', async t => {
