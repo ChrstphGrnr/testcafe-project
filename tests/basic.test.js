@@ -9,6 +9,7 @@ fixture`Getting started with TestCafe`
 	})
 	.beforeEach(async t => {
 		//Runs before each test
+		await t.setTestSpeed(0.1)
 	})
 	.after(async t => {
 		//cleaning test data
@@ -20,6 +21,7 @@ fixture`Getting started with TestCafe`
 
 test('My First TestCafe Test', async t => {
 	//test code
+	await t.setTestSpeed(0.1)
 	await t.typeText('#developer-name', 'John')
 	await t.click('#submit-button')
 
