@@ -4,7 +4,13 @@
 	"description": "first testcafe description",
 	"main": "index.js",
 	"scripts": {
-		"test": "testcafe chrome ./tests"
+		"test:chrome": "testcafe chrome ./tests",
+		"test:chrome:headless": "testcafe chrome:headless ./tests",
+    "test:chrome:mobile": "testcafe chrome:emulation:device=iphone X ./tests",
+    "test:chrome:mobile:headless": "testcafe chrome:headless:emulation:device=iphone X ./tests",
+		"test:safari": "testcafe safari ./tests",
+		"test:safari:headless": "testcafe safari:headless ./tests",
+		"test:firefox": "testcafe firefox ./tests"
 	},
 	"repository": {
 		"type": "git",
