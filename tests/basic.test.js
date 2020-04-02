@@ -9,7 +9,7 @@ fixture`Getting started with TestCafe`
 	})
 	.beforeEach(async t => {
 		//Runs before each test
-		await t.setTestSpeed(0.1)
+		await t.setTestSpeed(1)
 	})
 	.after(async t => {
 		//cleaning test data
@@ -25,6 +25,8 @@ test('My First TestCafe Test', async t => {
 	const submitButton = Selector('#submit-button')
 	const articleText = Selector('#article-header')
 
+	// await t.takeScreenshot({ fullpage: true })
+	// await t.takeElementScreenshot(submitButton)
 	await t.setTestSpeed(0.1)
 	await t.typeText(developerName, 'John')
 	await t.click(submitButton)
