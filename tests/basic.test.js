@@ -1,8 +1,22 @@
-import { Selector } from 'testcafe'
+import { Selector, t } from 'testcafe'
 
-//prettier-ignore
 fixture`Getting started with TestCafe`
-    .page(`https://devexpress.github.io/testcafe/example`)
+	.page(`https://devexpress.github.io/testcafe/example`)
+	.before(async t => {
+		//test setup goes here
+		//await runDatabaseReset()
+		//await seedTestData()
+	})
+	.beforeEach(async t => {
+		//Runs before each test
+	})
+	.after(async t => {
+		//cleaning test data
+		//looging and sending data to monitoring systems
+	})
+	.afterEach(async t => {
+		//Runs after each test
+	})
 
 test('My First TestCafe Test', async t => {
 	//test code
