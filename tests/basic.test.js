@@ -34,4 +34,16 @@ test.only('My First TestCafe Test', async t => {
 	await t.click(submitButton)
 
 	await t.expect(articleText.innerText).contains('John')
+
+	// different types of test functions
+	await t.click('selector', { options })
+	await t.doubleClick('selector', { options })
+	await t.rightClick('selector', { options })
+	await t.drag('selector', 200, 0, { options }) // second argument is x-offset, third argument is y-offset
+	await t.hover('selector', { options })
+	await t.typeText('selector', 'text')
+	await t.pressKey('key')
+	await t.navigateTo('url')
+	await t.takeScreenshot()
+	await t.resizeWindow(800, 600) // first argument is width, second is height
 })
