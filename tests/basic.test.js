@@ -35,31 +35,3 @@ test.only('My First TestCafe Test', async t => {
 
 	await t.expect(articleText.innerText).contains('John')
 })
-test('My First TestCafe Test', async t => {
-	//test code
-	const developerName = Selector('#developer-name')
-	const submitButton = Selector('#submit-button')
-	const articleText = Selector('#article-header')
-
-	// await t.takeScreenshot({ fullpage: true })
-	// await t.takeElementScreenshot(submitButton)
-	// await t.setTestSpeed(0.1)
-	await t.typeText(developerName, 'John')
-	await t.click(submitButton)
-
-	await t.expect(articleText.innerText).contains('John')
-})
-test('My First TestCafe Test', async t => {
-	//test code
-	const developerName = Selector('#developer-name')
-	const submitButton = Selector('#submit-button')
-	const articleText = Selector('#article-header')
-
-	// await t.takeScreenshot({ fullpage: true })
-	// await t.takeElementScreenshot(submitButton)
-	// await t.setTestSpeed(0.1)
-	await t.typeText(developerName, 'John')
-	await t.click(submitButton)
-
-	await t.expect(articleText.innerText).contains('John')
-})
