@@ -23,7 +23,7 @@ test('User cannot login with invalid credentials', async (t) => {
 	await t.expect(loginError.exists).ok()
 })
 
-test('User cannot login with invalid credentials', async (t) => {
+test('User CAN login with valid credentials', async (t) => {
 	const signInButton = Selector('#signin_button')
 	await t.click(signInButton)
 
