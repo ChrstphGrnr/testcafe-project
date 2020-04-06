@@ -36,7 +36,7 @@ test('User cannot login with invalid credentials', async (t) => {
 	await t.typeText(usernameInput, 'username')
 	await t.typeText(userPassword, 'password')
 
-	await t.debug()
+	// await t.debug()
 
 	const submitButton = Selector('#login_form > div.form-actions > input')
 	await t.click(submitButton)
@@ -44,4 +44,12 @@ test('User cannot login with invalid credentials', async (t) => {
 	const accountSummaryTab = Selector('#account_summary_tab')
 	await t.click(accountSummaryTab)
 	await t.expect(loginForm.exists).notOk()
+
+	const userIcon = Selector('.icon-user')
+	await t.click(userIcon)
+
+	const logOutButton = Selector('#logout_link')
+	await t.click(logOutButton)
+
+	await t.expect(signInButton.exists).ok()
 })
