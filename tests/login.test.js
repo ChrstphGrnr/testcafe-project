@@ -13,7 +13,7 @@ test('User cannot login with invalid credentials', async t => {
 
 	const usernameInput = Selector('#user_login')
 	const userPassword = Selector('#user_password')
-	const submitButton = Selector('#login_form > div.form-actions > input')
+	const submitButton = Selector('.btn-primary')
 	await t.typeText(usernameInput, 'invalid username', { paste: true })
 	await t.typeText(userPassword, 'invalid password', { paste: true })
 
@@ -23,21 +23,23 @@ test('User cannot login with invalid credentials', async t => {
 	await t.expect(loginError.exists).ok()
 })
 
-test('User can login with valid credentials', async t => {
-	const signInButton = Selector('#signin_button')
-	await t.click(signInButton)
+// test('User CAN log in with valid credentials', async t => {
+// 	const signInButton = Selector('#signin_button')
+// 	await t.click(signInButton)
 
-	const loginForm = Selector('#login_form')
-	await t.expect(loginForm.exists).ok()
+// 	const loginForm = Selector('#login_form')
+// 	await t.expect(loginForm.exists).ok()
 
-	const usernameInput = Selector('#user_login')
-	const userPassword = Selector('#user_password')
-	const submitButton = Selector('#login_form > div.form-actions > input')
-	await t.typeText(usernameInput, 'username', { paste: true })
-	await t.typeText(userPassword, 'password', { paste: true })
+// 	const usernameInput = Selector('#user_login')
+// 	const userPassword = Selector('#user_password')
+// 	const submitButton = Selector('.btn-primary')
+// 	await t.typeText(usernameInput, 'username', { paste: true })
+// 	await t.typeText(userPassword, 'password', { paste: true })
 
-	await t.click(submitButton)
+// 	await t.debug()
 
-	const loginError = Selector('#login_form > div.alert.alert-error')
-	await t.expect(loginError.exists).ok()
-})
+// 	await t.click(submitButton)
+
+// 	const loginError = Selector('#login_form > div.alert.alert-error')
+// 	await t.expect(loginError.exists).ok()
+// })
