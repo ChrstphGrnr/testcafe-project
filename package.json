@@ -4,7 +4,7 @@
 	"description": "first testcafe description",
 	"main": "index.js",
 	"scripts": {
-		"test:chrome": "testcafe chrome './tests/login.test.js'",
+		"test:chrome": "testcafe chrome:headless './tests/login.test.js'",
 		"test:chrome:headless": "testcafe chrome:headless ./tests -s takeOnFails=true",
 		"test:chrome:mobile": "testcafe chrome:emulation:device=iphone X ./tests -s takeOnFails=true",
 		"test:chrome:mobile:headless": "testcafe chrome:headless:emulation:device=iphone X ./tests -s takeOnFails=true",
