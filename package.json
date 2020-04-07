@@ -28,6 +28,7 @@
 	},
 	"homepage": "https://github.com/ChrstphGrnr/testcafe-project#readme",
 	"dependencies": {
+		"node": "10.7.0",
 		"testcafe": "^1.8.3"
 	}
 }

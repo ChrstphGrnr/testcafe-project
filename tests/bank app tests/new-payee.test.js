@@ -1,23 +1,25 @@
 import { Selector } from 'testcafe'
+import { login } from '../../helper.js'
 
 //pettier-ignore
 fixture`New payee test`.page`http://zero.webappsecurity.com/index.html`
 
 test.before(async (t) => {
-	const signInButton = Selector('#signin_button')
-	await t.click(signInButton)
+	// const signInButton = Selector('#signin_button')
+	// await t.click(signInButton)
 
-	const loginForm = Selector('#login_form')
-	await t.expect(loginForm.exists).ok()
+	// const loginForm = Selector('#login_form')
+	// await t.expect(loginForm.exists).ok()
 
-	const usernameInput = Selector('#user_login')
-	const userPassword = Selector('#user_password')
+	// const usernameInput = Selector('#user_login')
+	// const userPassword = Selector('#user_password')
 
-	await t.typeText(usernameInput, 'username')
-	await t.typeText(userPassword, 'password')
+	// await t.typeText(usernameInput, 'username')
+	// await t.typeText(userPassword, 'password')
 
-	const submitButton = Selector('#login_form > div.form-actions > input')
-	await t.click(submitButton)
+	// const submitButton = Selector('#login_form > div.form-actions > input')
+	// await t.click(submitButton)
+	await login('username', 'password')
 })('User can add a new payee to the list of payees', async (t) => {
 	//Selectors
 	const payBillsTab = Selector('#pay_bills_tab')
@@ -28,6 +30,8 @@ test.before(async (t) => {
 	const payeeDetails = Selector('#np_new_payee_details')
 	const addPayeeButton = Selector('#add_new_payee')
 	const alertContent = Selector('#alert_content').innerText
+	const errorMessage = 'The new payee Homer was successfully created.'
+
 	//Actions
 	await t.click(payBillsTab)
 	await t.click(addNewPayeeTab)
@@ -36,7 +40,7 @@ test.before(async (t) => {
 	await t.typeText(payeeAccount, 'Nuclear Power Plant', { paste: true })
 	await t.typeText(payeeDetails, 'Need to sleep more', { paste: true })
 	await t.click(addPayeeButton)
-	//The new payee awdadw was successfully created.
+
 	//Assertions
-	await t.expect(alertContent).contains('Homer')
+	await t.expect(alertContent).contains(errorMessage)
 })
