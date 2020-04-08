@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test:chrome": "testcafe chrome './tests/bank app tests'",
+		"test:chrome:5": "testcafe -c 5 chrome './tests/bank app tests'",
 		"test:chrome:headless": "testcafe chrome:headless ./tests -s takeOnFails=true",
 		"test:chrome:mobile": "testcafe chrome:emulation:device=iphone X ./tests -s takeOnFails=true",
 		"test:chrome:mobile:headless": "testcafe chrome:headless:emulation:device=iphone X ./tests -s takeOnFails=true",
@@ -29,6 +30,6 @@
 	"homepage": "https://github.com/ChrstphGrnr/testcafe-project#readme",
 	"dependencies": {
 		"node": "10.7.0",
-		"testcafe": "^1.8.3"
+		"testcafe": "1.7.0"
 	}
 }
