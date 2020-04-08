@@ -1,4 +1,7 @@
 import { Selector } from 'testcafe'
+import Navbar from '../../page-objects/components/Navbar'
+
+const navbar = new Navbar()
 
 //prettier-ignore
 fixture`Search form test`
@@ -6,14 +9,14 @@ fixture`Search form test`
 
 test('User can submit form and see results page', async (t) => {
 	//Selectors
-	const searchForm = Selector('#searchTerm')
+	// const searchForm = Selector('#searchTerm')
 	const pageContent = Selector('div').innerText
 	const linkText = Selector(
 		'body > div.wrapper > div.container > div > ul'
 	).nth(0).innerText
 
 	//Actions
-	await t.typeText(searchForm, 'banking', { paste: true })
+	await t.typeText(navbar.searchBox, 'banking', { paste: true })
 	await t.pressKey('enter')
 
 	//Assertions

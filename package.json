@@ -7,11 +7,13 @@
 		"test:chrome": "testcafe chrome './tests/bank app tests'",
 		"test:chrome:5": "testcafe -c 5 chrome './tests/bank app tests'",
 		"test:chrome:headless": "testcafe chrome:headless ./tests -s takeOnFails=true",
+		"test:chrome:headless:5": "testcafe -c 5 chrome:headless './tests/bank app tests'",
 		"test:chrome:mobile": "testcafe chrome:emulation:device=iphone X ./tests -s takeOnFails=true",
 		"test:chrome:mobile:headless": "testcafe chrome:headless:emulation:device=iphone X ./tests -s takeOnFails=true",
 		"test:safari": "testcafe safari ./tests -s takeOnFails=true",
 		"test:safari:headless": "testcafe safari:headless ./tests -s takeOnFails=true",
-		"test:firefox": "testcafe firefox ./tests -s takeOnFails=true"
+		"test:firefox": "testcafe firefox ./tests -s takeOnFails=true",
+		"tests:multiple": "testcafe chrome,safari './tests/bank app tests'"
 	},
 	"repository": {
 		"type": "git",
@@ -31,5 +33,8 @@
 	"dependencies": {
 		"node": "10.7.0",
 		"testcafe": "1.7.0"
+	},
+	"devDependencies": {
+		"xpath-to-css": "^1.0.4"
 	}
 }
