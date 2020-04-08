@@ -2,9 +2,11 @@ import { Selector, t } from 'testcafe'
 
 class LoginPage {
 	constructor() {
+		this.loginForm = Selector('#login_form')
 		this.usernameInput = Selector('#user_login')
 		this.passwordInput = Selector('#user_password')
 		this.submitButton = Selector('.btn-primary')
+		this.loginError = Selector('.alert-error')
 	}
 	async loginToApp(username, userpassword) {
 		await t

@@ -15,8 +15,7 @@ test('User cannot login with invalid credentials', async (t) => {
 
 	loginPage.loginToApp('invalid username', 'invalid password')
 
-	const loginError = Selector('#login_form > div.alert.alert-error')
-	await t.expect(loginError.exists).ok()
+	await t.expect(loginPage.loginError.exists).ok()
 })
 
 test('User CAN login with valid credentials', async (t) => {
@@ -26,7 +25,7 @@ test('User CAN login with valid credentials', async (t) => {
 
 	const accountSummaryTab = Selector('#account_summary_tab')
 	await t.click(accountSummaryTab)
-	await t.expect(Selector('#login_form').exists).notOk()
+	await t.expect(loginPage.loginForm.exists).notOk()
 
 	const userIcon = Selector('.icon-user')
 	await t.click(userIcon)
@@ -34,5 +33,5 @@ test('User CAN login with valid credentials', async (t) => {
 	const logOutButton = Selector('#logout_link')
 	await t.click(logOutButton)
 
-	await t.expect(Selector('#signin_button').exists).ok()
+	await t.expect(navbar.signInButton.exists).ok()
 })
