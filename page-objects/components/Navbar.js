@@ -6,6 +6,12 @@ class Navbar {
 		this.searchBox = Selector('#searchTerm')
 		this.signInButton = Selector('#signin_button')
 	}
+	//prettier-ignore
+	async search(text) {
+        await t
+        .typeText(this.searchBox, text, { paste: true, replace: true })
+        .pressKey('enter')
+	}
 }
 
 export default Navbar

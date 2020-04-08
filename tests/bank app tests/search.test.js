@@ -1,7 +1,9 @@
-import { Selector } from 'testcafe'
+// import { Selector } from 'testcafe'
 import Navbar from '../../page-objects/components/Navbar'
+import SearchResultsPage from '../../page-objects/pages/SearchResultsPage'
 
 const navbar = new Navbar()
+const searchResultsPage = new SearchResultsPage()
 
 //prettier-ignore
 fixture`Search form test`
@@ -9,19 +11,17 @@ fixture`Search form test`
 
 test('User can submit form and see results page', async (t) => {
 	//Selectors
-	// const searchForm = Selector('#searchTerm')
-	const pageContent = Selector('div').innerText
-	const linkText = Selector(
-		'body > div.wrapper > div.container > div > ul'
-	).nth(0).innerText
+	//got replaced with page-objects
 
 	//Actions
-	await t.typeText(navbar.searchBox, 'banking', { paste: true })
-	await t.pressKey('enter')
+	//got replaced with async function in page-objects
+	navbar.search('banking')
 
 	//Assertions
-	await t.expect(pageContent).contains('Search Results:')
 	await t
-		.expect(linkText)
+		.expect(searchResultsPage.pageContent.innerText)
+		.contains('Search Results:')
+	await t
+		.expect(searchResultsPage.linkText.innerText)
 		.contains('Zero - Personal Banking - Loans - Credit Cards')
 })
