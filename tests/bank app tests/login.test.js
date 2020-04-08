@@ -27,11 +27,8 @@ test('User CAN login with valid credentials', async (t) => {
 	await t.click(accountSummaryTab)
 	await t.expect(loginPage.loginForm.exists).notOk()
 
-	const userIcon = Selector('.icon-user')
-	await t.click(userIcon)
-
-	const logOutButton = Selector('#logout_link')
-	await t.click(logOutButton)
+	await t.click(loginPage.userIcon)
+	await t.click(loginPage.logoutButton)
 
 	await t.expect(navbar.signInButton.exists).ok()
 })
