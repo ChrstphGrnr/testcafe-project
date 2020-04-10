@@ -31,8 +31,8 @@
 	},
 	"homepage": "https://github.com/ChrstphGrnr/testcafe-project#readme",
 	"dependencies": {
-		"node": "10.7.0",
-		"testcafe": "1.7.0"
+		"node": "13.12.0",
+		"testcafe": "^1.8.4"
 	},
 	"devDependencies": {
 		"xpath-to-css": "^1.0.4"

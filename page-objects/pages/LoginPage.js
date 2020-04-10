@@ -9,6 +9,7 @@ class LoginPage {
 		this.loginError = Selector('.alert-error')
 		this.userIcon = Selector('.icon-user')
 		this.logoutButton = Selector('#logout_link')
+		this.forgottenPassword = Selector('a').withText('Forgot your password')
 	}
 	async loginToApp(username, userpassword) {
 		await t

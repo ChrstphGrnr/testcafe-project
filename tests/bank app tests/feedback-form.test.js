@@ -1,28 +1,26 @@
-import { Selector, t } from 'testcafe'
+import { Selector } from 'testcafe'
+
+import FeedbackPage from '../../page-objects/pages/FeedbackPage'
+
+const feedbackPage = new FeedbackPage()
 
 //prettier-ignore
 fixture`Feedback form submission test`
-    .page`http://zero.webappsecurity.com/index.html`
+	.page`http://zero.webappsecurity.com/index.html`
 
 test('User can submit Feedback form and see their name on the page after submission', async (t) => {
 	// Selectors
 	const feedbackForm = Selector('#feedback')
-	const usernameInput = Selector('#name')
-	const usernameEmail = Selector('#email')
-	const subject = Selector('#subject')
-	const comment = Selector('#comment')
-	const submitButton = Selector('input.btn-signin.btn.btn-primary')
-	const pageContent = Selector('div').innerText
-
-	// Actions
+	feedbackPage.waitFor(5000)
 	await t.click(feedbackForm)
-	await t.typeText(usernameInput, 'chris', { paste: true })
-	await t.typeText(usernameEmail, 'chris@chris.com', { paste: true })
-	await t.typeText(subject, 'Hello', { paste: true })
-	await t.typeText(comment, 'World!', { paste: true })
-	await t.click(submitButton)
+	feedbackPage.formFill(
+		'Homer',
+		'Homer@Simpsons.com',
+		'This is nuts',
+		'Mr. Burns wanted to fire me but I just ran'
+	)
 
 	// Assertions
-	await t.expect(pageContent).contains('chris')
-	await t.expect(submitButton.exists).notOk()
+	await t.expect(feedbackPage.page_content.innerText).contains('Homer')
+	await t.expect(feedbackPage.form_submit.exists).notOk()
 })
